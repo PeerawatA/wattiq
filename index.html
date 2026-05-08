@@ -3,205 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WATT·IQ — All Pages Content</title>
+<title>WATT·IQ — Smart Energy Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Noto+Sans+Thai:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0F2A45;--blue:#1B6CA8;--amber:#F59E0B;--green:#1D9E75;--ice:#E8F4FD;--white:#FFFFFF;--gray50:#F8FAFC;--gray100:#F1F5F9;--gray200:#E2E8F0;--gray500:#64748B;--gray700:#334155;--navy2:#162f4a}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Noto Sans Thai',sans-serif;background:var(--gray50);color:var(--gray700);line-height:1.7;min-height: 100vh;}
+body{font-family:'Inter','Noto Sans Thai',sans-serif;background:var(--gray50);color:var(--gray700);line-height:1.7;overflow-x:hidden}
 
-/* NAV */
-nav{background:var(--navy);padding:.8rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+/* ── NAV ── */
+nav{background:var(--navy);padding:.8rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100}
 .nav-logo{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:white;text-decoration:none;margin-right:auto}
 .nav-logo span{color:#4DAAEE}
-.nav-link{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;padding:.3rem .6rem;border-radius:6px;transition:color .15s,background .15s;cursor:pointer}
+.nav-link{font-size:.75rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;padding:.4rem .7rem;border-radius:6px;transition:all .15s;cursor:pointer}
 .nav-link:hover,.nav-link.active{color:white;background:rgba(255,255,255,.1)}
 
-/* PAGE SECTIONS */
-.page{display:none;padding:2.5rem 2rem;max-width:900px;margin:0 auto; animation: fadeIn 0.3s ease-in-out;}
-@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+/* ── PAGE ENGINE ── */
+.page{display:none;min-height:calc(100vh - 60px)}
 .page.active{display:block}
+.container{padding:2.5rem 2rem;max-width:900px;margin:0 auto}
 
-/* 🟢 BANNER FRAME STYLING */
-.banner-container {
-    width: 100%;
-    margin-bottom: 2rem;
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--white);
-    border: 1px solid var(--gray200);
-}
-.banner-frame {
-    width: 100%;
-    height: 350px; /* ปรับความสูงตามต้องการ */
-    border: none;
-    display: block;
-}
+/* ── 🟢 HOME PAGE (IFRAME ONLY) ── */
+#page-home { padding: 0; margin: 0; max-width: none; overflow: hidden; }
+.hero-iframe { width: 100%; height: calc(100vh - 60px); border: none; display: block; }
 
-/* TYPOGRAPHY & CARDS */
+/* ── TYPOGRAPHY ── */
 .page-badge{font-size:.7rem;font-weight:600;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-bottom:.5rem}
 .page-title{font-family:'Lora',serif;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.25}
 .page-sub{font-size:1rem;color:var(--gray500);margin-bottom:2rem;max-width:640px;line-height:1.7}
+
+/* ── CARDS & COMPONENTS (From Original) ── */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:2rem}
-.card{background:var(--white);border:1px solid var(--gray200);border-radius:14px;padding:1.4rem;transition:box-shadow .2s,transform .2s}
+.card{background:var(--white);border:1px solid var(--gray200);border-radius:14px;padding:1.4rem;transition:all .2s}
 .card:hover{box-shadow:0 8px 30px rgba(15,42,69,.08);transform:translateY(-2px)}
 .card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.9rem}
 .ci-hw{background:#FEF3C7}.ci-plc{background:#D1FAE5}.ci-iot{background:#DBEAFE}.ci-ai{background:#EDE9FE}
 .card-title{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
 .card-desc{font-size:.82rem;color:var(--gray500);line-height:1.6}
 
-/* MODULES, CODE, TABLES (Keep Existing CSS) */
-.module-block{background:var(--white);border:1px solid var(--gray200);border-radius:12px;margin-bottom:1rem;overflow:hidden}
-.module-hdr{display:flex;align-items:center;gap:12px;padding:.9rem 1.2rem;border-bottom:1px solid var(--gray100);cursor:pointer;user-select:none}
-.module-num{font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:99px}
-.mn-hw{background:#FEF3C7;color:#92400E}.mn-plc{background:#D1FAE5;color:#065F46}.mn-iot{background:#DBEAFE;color:#1E40AF}.mn-ai{background:#EDE9FE;color:#5B21B6}
-.module-title{font-size:.93rem;font-weight:600;color:var(--navy);flex:1}
-.module-arrow{font-size:.9rem;color:var(--gray500);transition:transform .2s}
-.module-body{padding:1rem 1.2rem;display:none}.module-body.open{display:block}
-.module-list{list-style:none}.module-list li{padding:.3rem 0;font-size:.85rem;color:var(--gray700);display:flex;gap:.5rem;align-items:flex-start;border-bottom:1px solid var(--gray100)}
-.module-list li::before{content:'›';color:var(--blue);font-weight:700;flex-shrink:0}
-
-.code-wrap{background:#0F2A45;border-radius:10px;overflow:hidden;margin:1rem 0}
-.code-top{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem;background:#162f4a;border-bottom:1px solid rgba(255,255,255,.08)}
-.code-lang{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.08em}
-.code-copy{font-size:.72rem;color:rgba(255,255,255,.5);cursor:pointer;padding:2px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.15);background:none}
-pre{padding:1rem;font-size:.78rem;line-height:1.65;color:#CBD5E1;overflow-x:auto;font-family:'Courier New',monospace}
-.kw{color:#93C5FD;font-weight:500}.cm{color:#64748B;font-style:italic}.nm{color:#FCA5A5}.fn{color:#A5F3FC}.st{color:#86EFAC}
-
-.timeline{position:relative;padding-left:2rem;margin-bottom:2rem}
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
 .timeline::before{content:'';position:absolute;left:.65rem;top:0;bottom:0;width:2px;background:var(--gray200)}
-.tl-item{position:relative;margin-bottom:1.25rem}
+.tl-item{position:relative;margin-bottom:1.5rem}
 .tl-dot{position:absolute;left:-2rem;top:.3rem;width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--blue)}
-.tl-dot.hw{box-shadow:0 0 0 2px var(--amber)}.tl-dot.plc{box-shadow:0 0 0 2px var(--green)}.tl-dot.iot{box-shadow:0 0 0 2px var(--blue)}
-.tl-week{font-size:.7rem;font-weight:600;color:var(--gray500);margin-bottom:.2rem;letter-spacing:.05em}
+.tl-dot.hw{box-shadow:0 0 0 2px var(--amber)}.tl-dot.plc{box-shadow:0 0 0 2px var(--green)}
+.tl-week{font-size:.7rem;font-weight:600;color:var(--gray500);margin-bottom:.2rem}
 .tl-title{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
 .tl-desc{font-size:.82rem;color:var(--gray500);line-height:1.5}
 
-.res-table{width:100%;border-collapse:collapse;font-size:.83rem;background:white;border-radius:12px;overflow:hidden;border:1px solid var(--gray200)}
-.res-table th{background:var(--gray50);padding:.7rem 1rem;text-align:left;font-size:.72rem;font-weight:600;color:var(--gray500);letter-spacing:.05em;border-bottom:1px solid var(--gray200)}
-.res-table td{padding:.65rem 1rem;border-bottom:1px solid var(--gray100);color:var(--gray700)}
-.dl-btn{font-size:.75rem;padding:3px 10px;border-radius:6px;background:var(--ice);color:var(--blue);font-weight:500;text-decoration:none;border:1px solid rgba(27,108,168,.2)}
-
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:2rem}
-.about-card{background:var(--white);border:1px solid var(--gray200);border-radius:12px;padding:1.25rem}
-.quote-block{background:var(--navy);color:white;border-radius:12px;padding:1.5rem;margin:1.5rem 0;text-align:center}
-.quote-text{font-family:'Lora',serif;font-size:1.1rem;font-weight:600;line-height:1.5;margin-bottom:.5rem}
-
-.pill{display:inline-block;font-size:.72rem;font-weight:500;padding:3px 9px;border-radius:99px;margin:2px}
-.p-hw{background:#FEF3C7;color:#92400E}.p-plc{background:#D1FAE5;color:#065F46}.p-iot{background:#DBEAFE;color:#1E40AF}.p-ai{background:#EDE9FE;color:#5B21B6}.p-free{background:#DCFCE7;color:#15803D}
-.alert{padding:.8rem 1rem;border-radius:8px;font-size:.83rem;line-height:1.6;margin:1rem 0}
+/* ... (Keep other original styles for modules, tables, etc.) ... */
+.module-block{background:var(--white);border:1px solid var(--gray200);border-radius:12px;margin-bottom:1rem;overflow:hidden}
+.module-hdr{display:flex;align-items:center;gap:12px;padding:.9rem 1.2rem;border-bottom:1px solid var(--gray100);cursor:pointer}
+.module-body{padding:1rem 1.2rem;display:none}.module-body.open{display:block}
+.res-table{width:100%;border-collapse:collapse;font-size:.83rem;background:white;border:1px solid var(--gray200)}
+.res-table th{background:var(--gray50);padding:.7rem 1rem;text-align:left}
+.res-table td{padding:.65rem 1rem;border-bottom:1px solid var(--gray100)}
+.alert{padding:.8rem 1rem;border-radius:8px;font-size:.83rem;margin:1rem 0}
 .alert-info{background:#DBEAFE;color:#1E40AF;border-left:3px solid var(--blue)}
-.alert-tip{background:#FEF3C7;color:#92400E;border-left:3px solid var(--amber)}
-
-@media(max-width:600px){.about-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr}nav{gap:.8rem}}
 </style>
 </head>
 <body>
 
 <nav>
   <span class="nav-logo">WATT<span>·IQ</span></span>
-  <a class="nav-link active" onclick="show('home', this)">Home</a>
-  <a class="nav-link" onclick="show('hw', this)">01 Hardware</a>
-  <a class="nav-link" onclick="show('plc', this)">02 PLC</a>
-  <a class="nav-link" onclick="show('iot', this)">03 IT/Cloud</a>
-  <a class="nav-link" onclick="show('ai', this)">04 AI</a>
-  <a class="nav-link" onclick="show('res', this)">05 Resources</a>
-  <a class="nav-link" onclick="show('about', this)">06 About</a>
+  <a class="nav-link active" onclick="showPage('home', this)">Home</a>
+  <a class="nav-link" onclick="showPage('flow', this)">Course Flow</a>
+  <a class="nav-link" onclick="showPage('hw', this)">01 Hardware</a>
+  <a class="nav-link" onclick="showPage('plc', this)">02 PLC</a>
+  <a class="nav-link" onclick="showPage('iot', this)">03 IT/Cloud</a>
+  <a class="nav-link" onclick="showPage('ai', this)">04 AI</a>
+  <a class="nav-link" onclick="showPage('res', this)">05 Resources</a>
+  <a class="nav-link" onclick="showPage('about', this)">06 About</a>
 </nav>
 
 <div class="page active" id="page-home">
-  <div class="banner-container">
-      <iframe src="B1_hero_banner.html" class="banner-frame"></iframe>
-  </div>
+  <iframe src="B1_hero_banner.html" class="hero-iframe"></iframe>
+</div>
 
-  <div class="page-badge">Smart Energy Management Platform</div>
-  <h1 class="page-title">Measure Smarter.<br>Manage Better.</h1>
-  <p class="page-sub">
-    วัดให้แม่น · รู้ให้ทัน · จัดการพลังงานอย่างชาญฉลาด<br>
-    เรียนรู้ผ่าน Real Hardware Prototype — จาก CT Sensor ถึง Cloud Dashboard และ AI Analytics
-  </p>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-icon ci-hw">🔌</div>
-      <div class="card-title">Step 1 — Hardware Setup</div>
-      <div class="card-desc">CT Sensor · Selec EM2M Energy Meter · RS485 Bus · Modbus RTU communication</div>
+<div class="page" id="page-flow">
+  <div class="container">
+    <div class="page-badge">Learning Roadmap</div>
+    <h1 class="page-title">Course Flow & Lessons</h1>
+    <p class="page-sub">ขั้นตอนการเรียนรู้อย่างเป็นระบบ ตั้งแต่การ Wiring อุปกรณ์จริง ไปจนถึงการวิเคราะห์ข้อมูลด้วย AI</p>
+    
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon ci-hw">🔌</div>
+        <div class="card-title">Step 1 — Hardware</div>
+        <div class="card-desc">CT Sensor · Selec Energy Meter · RS485 Wiring diagram</div>
+      </div>
+      <div class="card">
+        <div class="card-icon ci-plc">⚙️</div>
+        <div class="card-title">Step 2 — PLC</div>
+        <div class="card-desc">Messung NX-ERA · CODESYS IEC 61131-3 · Modbus Master</div>
+      </div>
+      <div class="card">
+        <div class="card-icon ci-iot">☁️</div>
+        <div class="card-title">Step 3 — IT / Cloud</div>
+        <div class="card-desc">Node-RED · MQTT · InfluxDB · Grafana Dashboard</div>
+      </div>
+      <div class="card">
+        <div class="card-icon ci-ai">🧠</div>
+        <div class="card-title">Future — AI</div>
+        <div class="card-desc">Anomaly Detection · Demand Forecasting · LSTM model</div>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon ci-plc">⚙️</div>
-      <div class="card-title">Step 2 — PLC Programming</div>
-      <div class="card-desc">Messung NX-ERA · CODESYS IEC 61131-3 · Modbus Master FB · Alarm Logic</div>
+
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot hw"></div><div class="tl-week">WEEK 1–2</div><div class="tl-title">Hardware & Communication</div><div class="tl-desc">เดินสาย, ตั้งค่า Modbus address, ทดสอบสัญญาณ</div></div>
+      <div class="tl-item"><div class="tl-dot plc"></div><div class="tl-week">WEEK 3–4</div><div class="tl-title">PLC & Logic Programming</div><div class="tl-desc">เขียน CODESYS อ่านค่าพลังงานและตั้งเงื่อนไข Alarm</div></div>
+      <div class="tl-item"><div class="tl-dot" style="box-shadow:0 0 0 2px var(--blue)"></div><div class="tl-week">WEEK 5–6</div><div class="tl-title">IoT & Dashboard</div><div class="tl-desc">ส่งข้อมูลผ่าน MQTT และสร้าง Dashboard บน Grafana</div></div>
     </div>
-    <div class="card">
-      <div class="card-icon ci-iot">☁️</div>
-      <div class="card-title">Step 3 — IT / Cloud</div>
-      <div class="card-desc">Node-RED Bridge · Mosquitto MQTT · InfluxDB · Grafana Dashboard</div>
-    </div>
-    <div class="card">
-      <div class="card-icon ci-ai">🧠</div>
-      <div class="card-title">Future — AI Analytics</div>
-      <div class="card-desc">Dataset collection · Python ML · Anomaly Detection · Demand Forecasting</div>
-    </div>
-  </div>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-dot hw"></div><div class="tl-week">WEEK 1–2 · HARDWARE</div><div class="tl-title">CT Sensor, RS485, Selec EM2M</div><div class="tl-desc">เดินสาย, ตั้งค่า Modbus address, ทดสอบด้วย Modbus Poll บน PC</div></div>
-    <div class="tl-item"><div class="tl-dot plc"></div><div class="tl-week">WEEK 3–4 · PLC</div><div class="tl-title">CODESYS + Messung</div><div class="tl-desc">เขียน Modbus Master FB, อ่านค่า, Scale, Alarm Logic พร้อม Relay output</div></div>
   </div>
 </div>
 
 <div class="page" id="page-hw">
-  <div class="page-badge">Step 01 · สัปดาห์ที่ 1–2</div>
-  <h1 class="page-title">Hardware Setup</h1>
-  <p class="page-sub">CT Sensor · Selec EM2M Energy Meter · RS485 Wiring · Modbus RTU</p>
-  <div class="module-block">
-    <div class="module-hdr" onclick="tog(this)">
-      <span class="module-num mn-hw">1.1</span>
-      <span class="module-title">หลักการวัดไฟฟ้าและ CT Sensor</span>
-      <span class="module-arrow">▾</span>
-    </div>
-    <div class="module-body open">
-        <ul class="module-list">
-            <li>CT (Current Transformer) ทำงานโดยอาศัยการเหนี่ยวนำแม่เหล็ก วัดกระแส AC โดยไม่ต้องตัดวงจร</li>
-            <li>เลือก CT ratio ให้เหมาะกับ load — ถ้า max current 80A ใช้ CT 100A/5A</li>
-        </ul>
+  <div class="container">
+    <div class="page-badge">Step 01</div>
+    <h1 class="page-title">Hardware Setup</h1>
+    <div class="alert alert-info">🔧 อุปกรณ์ที่ต้องใช้: CT 100A/5A · Selec EM2M-96 · RS485 Cable</div>
+    <div class="module-block">
+        <div class="module-hdr" onclick="tog(this)">
+          <span class="module-num mn-hw">1.1</span>
+          <span class="module-title">หลักการวัดไฟฟ้าและ CT Sensor</span>
+        </div>
+        <div class="module-body">
+            <p>เนื้อหาเกี่ยวกับการติดตั้ง CT Sensor...</p>
+        </div>
     </div>
   </div>
 </div>
 
 <script>
-// ปรับปรุงฟังก์ชัน show ให้รองรับการคลิก Home และเปลี่ยนสถานะ active
-function show(id, element){
+function showPage(id, el) {
   // ซ่อนทุกหน้า
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // เอา class active ออกจากทุก link
-  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  // แสดงเฉพาะหน้าที่เลือก
+  document.getElementById('page-' + id).classList.add('active');
   
-  // แสดงหน้าที่มี id ตรงกัน
-  const targetPage = document.getElementById('page-' + id);
-  if(targetPage) {
-    targetPage.classList.add('active');
-  }
-
-  // ใส่ class active ให้กับเมนูที่ถูกคลิก
-  if(element) {
-    element.classList.add('active');
-  }
+  // จัดการสถานะเมนู
+  document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+  el.classList.add('active');
   
   window.scrollTo(0,0);
 }
 
 function tog(hdr){
   const body=hdr.nextElementSibling;
-  const arrow=hdr.querySelector('.module-arrow');
-  const open=body.classList.toggle('open');
-  if(arrow) arrow.style.transform=open?'rotate(180deg)':'';
-}
-
-function copyEl(btn){
-  const pre=btn.closest('.code-wrap').querySelector('pre');
-  navigator.clipboard.writeText(pre.innerText).then(()=>{
-    btn.textContent='Copied!';
-    setTimeout(()=>btn.textContent='Copy',1500);
-  });
+  body.classList.toggle('open');
 }
 </script>
 </body>
