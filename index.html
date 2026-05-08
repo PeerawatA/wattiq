@@ -3,57 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WATT·IQ — Smart Energy Platform</title>
+<title>WATT·IQ — All Pages Content</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Noto+Sans+Thai:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0F2A45;--blue:#1B6CA8;--amber:#F59E0B;--green:#1D9E75;--ice:#E8F4FD;--white:#FFFFFF;--gray50:#F8FAFC;--gray100:#F1F5F9;--gray200:#E2E8F0;--gray500:#64748B;--gray700:#334155;--navy2:#162f4a}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Noto Sans Thai',sans-serif;background:var(--gray50);color:var(--gray700);line-height:1.7;min-height: 100vh;}
-
-/* 🟢 NEW: Animation สำหรับไฟกะพริบ Status */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(29, 158, 117, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(29, 158, 117, 0); }
-}
-.status-pulse {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: var(--green);
-  border-radius: 50%;
-  margin-right: 8px;
-  animation: pulse 2s infinite;
-}
-
+body{font-family:'Inter','Noto Sans Thai',sans-serif;background:var(--gray50);color:var(--gray700);line-height:1.7}
 /* NAV */
 nav{background:var(--navy);padding:.8rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:sticky;top:0;z-index:100}
 .nav-logo{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:white;text-decoration:none;margin-right:auto}
 .nav-logo span{color:#4DAAEE}
 .nav-link{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;padding:.3rem .6rem;border-radius:6px;transition:color .15s,background .15s;cursor:pointer}
 .nav-link:hover,.nav-link.active{color:white;background:rgba(255,255,255,.1)}
-
 /* PAGE SECTIONS */
-.page{display:none;padding:2.5rem 2rem;max-width:900px;margin:0 auto; animation: fadeIn 0.4s ease-out;}
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.page{display:none;padding:2.5rem 2rem;max-width:900px;margin:0 auto}
 .page.active{display:block}
-
-/* 🟢 NEW: Banner Frame Styling */
-.banner-frame {
-    width: 100%;
-    height: 250px;
-    border: none;
-    border-radius: 16px;
-    margin-bottom: 2rem;
-    background: var(--gray100);
-}
-
 /* TYPOGRAPHY */
-.page-badge{display:flex; align-items:center; font-size:.7rem;font-weight:600;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-bottom:.5rem}
+.page-badge{font-size:.7rem;font-weight:600;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-bottom:.5rem}
 .page-title{font-family:'Lora',serif;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.25}
 .page-sub{font-size:1rem;color:var(--gray500);margin-bottom:2rem;max-width:640px;line-height:1.7}
-
-/* CARDS & MODULES (Keep Original CSS) */
+/* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:2rem}
 .card{background:var(--white);border:1px solid var(--gray200);border-radius:14px;padding:1.4rem;transition:box-shadow .2s,transform .2s}
 .card:hover{box-shadow:0 8px 30px rgba(15,42,69,.08);transform:translateY(-2px)}
@@ -61,53 +30,68 @@ nav{background:var(--navy);padding:.8rem 2rem;display:flex;align-items:center;ga
 .ci-hw{background:#FEF3C7}.ci-plc{background:#D1FAE5}.ci-iot{background:#DBEAFE}.ci-ai{background:#EDE9FE}
 .card-title{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
 .card-desc{font-size:.82rem;color:var(--gray500);line-height:1.6}
-
+/* MODULE BLOCKS */
 .module-block{background:var(--white);border:1px solid var(--gray200);border-radius:12px;margin-bottom:1rem;overflow:hidden}
 .module-hdr{display:flex;align-items:center;gap:12px;padding:.9rem 1.2rem;border-bottom:1px solid var(--gray100);cursor:pointer;user-select:none}
+.module-hdr:hover{background:var(--gray50)}
 .module-num{font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:99px}
-.mn-hw{background:#FEF3C7;color:#92400E}.mn-plc{background:#D1FAE5;color:#065F46}.mn-iot{background:#DBEAFE;color:#1E40AF}.mn-ai{background:#EDE9FE;color:#5B21B6}
+.mn-hw{background:#FEF3C7;color:#92400E}
+.mn-plc{background:#D1FAE5;color:#065F46}
+.mn-iot{background:#DBEAFE;color:#1E40AF}
+.mn-ai{background:#EDE9FE;color:#5B21B6}
 .module-title{font-size:.93rem;font-weight:600;color:var(--navy);flex:1}
 .module-arrow{font-size:.9rem;color:var(--gray500);transition:transform .2s}
-.module-body{padding:1rem 1.2rem;display:none}.module-body.open{display:block}
-.module-list{list-style:none}.module-list li{padding:.3rem 0;font-size:.85rem;color:var(--gray700);display:flex;gap:.5rem;align-items:flex-start;border-bottom:1px solid var(--gray100)}
+.module-body{padding:1rem 1.2rem;display:none}
+.module-body.open{display:block}
+.module-list{list-style:none}
+.module-list li{padding:.3rem 0;font-size:.85rem;color:var(--gray700);display:flex;gap:.5rem;align-items:flex-start;border-bottom:1px solid var(--gray100)}
+.module-list li:last-child{border-bottom:none}
 .module-list li::before{content:'›';color:var(--blue);font-weight:700;flex-shrink:0}
-
 /* CODE BLOCKS */
 .code-wrap{background:#0F2A45;border-radius:10px;overflow:hidden;margin:1rem 0}
 .code-top{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem;background:#162f4a;border-bottom:1px solid rgba(255,255,255,.08)}
 .code-lang{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.08em}
 .code-copy{font-size:.72rem;color:rgba(255,255,255,.5);cursor:pointer;padding:2px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.15);background:none}
+.code-copy:hover{color:white;border-color:rgba(255,255,255,.4)}
 pre{padding:1rem;font-size:.78rem;line-height:1.65;color:#CBD5E1;overflow-x:auto;font-family:'Courier New',monospace}
 .kw{color:#93C5FD;font-weight:500}.cm{color:#64748B;font-style:italic}.nm{color:#FCA5A5}.fn{color:#A5F3FC}.st{color:#86EFAC}
-
-/* TIMELINE & TABLES */
+/* STEP TIMELINE */
 .timeline{position:relative;padding-left:2rem;margin-bottom:2rem}
 .timeline::before{content:'';position:absolute;left:.65rem;top:0;bottom:0;width:2px;background:var(--gray200)}
 .tl-item{position:relative;margin-bottom:1.25rem}
 .tl-dot{position:absolute;left:-2rem;top:.3rem;width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--blue)}
-.tl-dot.hw{box-shadow:0 0 0 2px var(--amber)}.tl-dot.plc{box-shadow:0 0 0 2px var(--green)}
+.tl-dot.hw{box-shadow:0 0 0 2px var(--amber)}
+.tl-dot.plc{box-shadow:0 0 0 2px var(--green)}
+.tl-dot.iot{box-shadow:0 0 0 2px var(--blue)}
 .tl-week{font-size:.7rem;font-weight:600;color:var(--gray500);margin-bottom:.2rem;letter-spacing:.05em}
 .tl-title{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
 .tl-desc{font-size:.82rem;color:var(--gray500);line-height:1.5}
-
+/* RESOURCE TABLE */
 .res-table{width:100%;border-collapse:collapse;font-size:.83rem;background:white;border-radius:12px;overflow:hidden;border:1px solid var(--gray200)}
 .res-table th{background:var(--gray50);padding:.7rem 1rem;text-align:left;font-size:.72rem;font-weight:600;color:var(--gray500);letter-spacing:.05em;border-bottom:1px solid var(--gray200)}
 .res-table td{padding:.65rem 1rem;border-bottom:1px solid var(--gray100);color:var(--gray700)}
+.res-table tr:last-child td{border-bottom:none}
+.res-table tr:hover td{background:var(--gray50)}
 .dl-btn{font-size:.75rem;padding:3px 10px;border-radius:6px;background:var(--ice);color:var(--blue);font-weight:500;text-decoration:none;border:1px solid rgba(27,108,168,.2)}
-
-/* PILLS & ALERTS */
-.pill{display:inline-block;font-size:.72rem;font-weight:500;padding:3px 9px;border-radius:99px;margin:2px}
-.p-hw{background:#FEF3C7;color:#92400E}.p-plc{background:#D1FAE5;color:#065F46}.p-iot{background:#DBEAFE;color:#1E40AF}.p-free{background:#DCFCE7;color:#15803D}
-.alert{padding:.8rem 1rem;border-radius:8px;font-size:.83rem;line-height:1.6;margin:1rem 0}
-.alert-info{background:#DBEAFE;color:#1E40AF;border-left:3px solid var(--blue)}
-.alert-tip{background:#FEF3C7;color:#92400E;border-left:3px solid var(--amber)}
-
 /* ABOUT SECTION */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:2rem}
 .about-card{background:var(--white);border:1px solid var(--gray200);border-radius:12px;padding:1.25rem}
+.about-card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.6rem}
+.about-card p{font-size:.83rem;color:var(--gray500);line-height:1.65}
 .quote-block{background:var(--navy);color:white;border-radius:12px;padding:1.5rem;margin:1.5rem 0;text-align:center}
 .quote-text{font-family:'Lora',serif;font-size:1.1rem;font-weight:600;line-height:1.5;margin-bottom:.5rem}
-
+.quote-attr{font-size:.78rem;color:rgba(255,255,255,.5)}
+/* PILLS */
+.pill{display:inline-block;font-size:.72rem;font-weight:500;padding:3px 9px;border-radius:99px;margin:2px}
+.p-hw{background:#FEF3C7;color:#92400E}
+.p-plc{background:#D1FAE5;color:#065F46}
+.p-iot{background:#DBEAFE;color:#1E40AF}
+.p-ai{background:#EDE9FE;color:#5B21B6}
+.p-free{background:#DCFCE7;color:#15803D}
+/* ALERTS */
+.alert{padding:.8rem 1rem;border-radius:8px;font-size:.83rem;line-height:1.6;margin:1rem 0}
+.alert-info{background:#DBEAFE;color:#1E40AF;border-left:3px solid var(--blue)}
+.alert-tip{background:#FEF3C7;color:#92400E;border-left:3px solid var(--amber)}
 @media(max-width:600px){.about-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr}nav{gap:.8rem}}
 </style>
 </head>
@@ -124,76 +108,383 @@ pre{padding:1rem;font-size:.78rem;line-height:1.65;color:#CBD5E1;overflow-x:auto
   <a class="nav-link" onclick="show('about')">06 About</a>
 </nav>
 
+<!-- ══ PAGE: HOME ══ -->
 <div class="page active" id="page-home">
-  <iframe src="B1_hero_banner.html" class="banner-frame"></iframe>
-
-  <div class="page-badge">
-    <span class="status-pulse"></span> System Live: Smart Energy Platform
-  </div>
+  <div class="page-badge">Smart Energy Management Platform</div>
   <h1 class="page-title">Measure Smarter.<br>Manage Better.</h1>
   <p class="page-sub">
     วัดให้แม่น · รู้ให้ทัน · จัดการพลังงานอย่างชาญฉลาด<br>
     เรียนรู้ผ่าน Real Hardware Prototype — จาก CT Sensor ถึง Cloud Dashboard และ AI Analytics
   </p>
-  
   <div class="card-grid">
     <div class="card">
       <div class="card-icon ci-hw">🔌</div>
       <div class="card-title">Step 1 — Hardware Setup</div>
-      <div class="card-desc">CT Sensor · Selec EM2M Energy Meter · RS485 Bus · Modbus RTU</div>
+      <div class="card-desc">CT Sensor · Selec EM2M Energy Meter · RS485 Bus · Modbus RTU communication · Wiring diagram</div>
     </div>
     <div class="card">
       <div class="card-icon ci-plc">⚙️</div>
       <div class="card-title">Step 2 — PLC Programming</div>
-      <div class="card-desc">Messung NX-ERA · CODESYS IEC 61131-3 · Modbus Master FB</div>
+      <div class="card-desc">Messung NX-ERA · CODESYS IEC 61131-3 · Modbus Master FB · Alarm Logic · Peak Demand</div>
     </div>
     <div class="card">
       <div class="card-icon ci-iot">☁️</div>
       <div class="card-title">Step 3 — IT / Cloud</div>
-      <div class="card-desc">Node-RED · MQTT · InfluxDB · Grafana Dashboard</div>
+      <div class="card-desc">Node-RED Bridge · Mosquitto MQTT · InfluxDB · Grafana Dashboard · Real-time visualization</div>
     </div>
     <div class="card">
       <div class="card-icon ci-ai">🧠</div>
       <div class="card-title">Future — AI Analytics</div>
-      <div class="card-desc">Anomaly Detection · Demand Forecasting · LSTM model</div>
+      <div class="card-desc">Dataset collection · Python ML · Anomaly Detection · Demand Forecasting · LSTM model</div>
     </div>
   </div>
-
   <div class="alert alert-tip">
-    💡 <strong>สำหรับอาจารย์:</strong> สามารถใช้ B2_logo_assets.svg เพื่อตกแต่ง Slide หรือ Lab sheet ได้ฟรี
+    💡 <strong>สำหรับอาจารย์:</strong> ทุกหน้ามี Embed code, Download ไฟล์ และ CODESYS Sample Code พร้อมใช้ในห้องเรียนทันที
   </div>
-  
   <div class="timeline">
-    <div class="tl-item"><div class="tl-dot hw"></div><div class="tl-week">WEEK 1–2 · HARDWARE</div><div class="tl-title">Physical Wiring & Modbus Test</div><div class="tl-desc">เดินสาย CT, ตั้งค่า Modbus Address 1, ทดสอบด้วย Modbus Poll</div></div>
-    <div class="tl-item"><div class="tl-dot plc"></div><div class="tl-week">WEEK 3–4 · PLC</div><div class="tl-title">CODESYS Master Logic</div><div class="tl-desc">เขียน Function Block อ่านค่า V, I, kW และจัดการ Alarm</div></div>
+    <div class="tl-item"><div class="tl-dot hw"></div><div class="tl-week">WEEK 1–2 · HARDWARE</div><div class="tl-title">CT Sensor, RS485, Selec EM2M</div><div class="tl-desc">เดินสาย, ตั้งค่า Modbus address, ทดสอบด้วย Modbus Poll บน PC</div></div>
+    <div class="tl-item"><div class="tl-dot plc"></div><div class="tl-week">WEEK 3–4 · PLC</div><div class="tl-title">CODESYS + Messung</div><div class="tl-desc">เขียน Modbus Master FB, อ่านค่า, Scale, Alarm Logic พร้อม Relay output</div></div>
+    <div class="tl-item"><div class="tl-dot iot"></div><div class="tl-week">WEEK 5–6 · IT/CLOUD</div><div class="tl-title">MQTT, InfluxDB, Grafana</div><div class="tl-desc">Node-RED bridge, Mosquitto broker, time-series DB, สร้าง Dashboard embed Google Sites</div></div>
+    <div class="tl-item"><div class="tl-dot" style="box-shadow:0 0 0 2px #7C3AED"></div><div class="tl-week">BONUS · AI</div><div class="tl-title">Python ML บน Dataset จริง</div><div class="tl-desc">นำข้อมูลที่เก็บตั้งแต่วันแรกมาทำ Anomaly Detection และ Demand Forecasting</div></div>
   </div>
 </div>
 
+<!-- ══ PAGE 01: HARDWARE ══ -->
 <div class="page" id="page-hw">
   <div class="page-badge">Step 01 · สัปดาห์ที่ 1–2</div>
   <h1 class="page-title">Hardware Setup</h1>
-  <p class="page-sub">CT Sensor · Selec EM2M Energy Meter · RS485 Wiring</p>
-  <div class="alert alert-info">🔧 <strong>อุปกรณ์แนะนำ:</strong> Selec EM2M-96 + Split-core CT</div>
+  <p class="page-sub">CT Sensor · Selec EM2M Energy Meter · RS485 Wiring · Modbus RTU — ทำตามได้ทีละขั้นตอน</p>
+  <div class="alert alert-info">🔧 <strong>อุปกรณ์ที่ต้องใช้:</strong> CT 100A/5A (split-core) · Selec EM2M-96 · สาย Shielded twisted pair (RS485) · Termination resistor 120Ω × 2 · USB-RS485 dongle (สำหรับทดสอบจาก PC)</div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-hw">1.1</span>
+      <span class="module-title">หลักการวัดไฟฟ้าและ CT Sensor</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body open">
+      <ul class="module-list">
+        <li>CT (Current Transformer) ทำงานโดยอาศัยการเหนี่ยวนำแม่เหล็ก วัดกระแส AC โดยไม่ต้องตัดวงจร</li>
+        <li>เลือก CT ratio ให้เหมาะกับ load — ถ้า max current 80A ใช้ CT 100A/5A (Safety margin 25%)</li>
+        <li>Split-core CT เปิดคล้องสายได้โดยไม่ต้องตัดไฟ เหมาะสำหรับ retrofit</li>
+        <li>สาย CT ต้องต่อ Burden resistor 5Ω ที่ขั้ว Secondary ของมิเตอร์ (Selec EM2M มีภายในแล้ว)</li>
+        <li>ความปลอดภัย: อย่าเปิดวงจร Secondary CT ขณะมีกระแสไหล — แรงดันจะสูงมาก</li>
+      </ul>
+    </div>
   </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-hw">1.2</span>
+      <span class="module-title">ติดตั้งและตั้งค่า Selec EM2M-96</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <ul class="module-list">
+        <li>ติดตั้งบน Din-Rail ขนาด 96×96mm front panel</li>
+        <li>ต่อไฟเลี้ยง: L-N 85–300VAC เข้าขั้ว Power Supply ของมิเตอร์</li>
+        <li>ต่อ Voltage sensing: L1/L2/L3 และ N เข้าขั้ว Voltage input</li>
+        <li>ต่อสาย CT Secondary (5A) เข้าขั้ว Current input I1/I2/I3</li>
+        <li>ตั้งค่าผ่าน front panel: CT ratio → Communication → Modbus Address (1–247) → Baud rate (9600/19200)</li>
+        <li>ตรวจสอบค่าหน้าจอ: V~220V, I~ตามโหลด, PF~0.8–1.0, Hz~50</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-hw">1.3</span>
+      <span class="module-title">RS485 Bus Topology และ Modbus Test</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <ul class="module-list">
+        <li>RS485 ใช้สาย 3 เส้น: A(+), B(-), GND — ต่อแบบ Daisy-chain ห้ามใช้ Star topology</li>
+        <li>ต่อ Termination resistor 120Ω ที่ปลายทั้งสองด้านของ bus (จาก A+ ถึง B-)</li>
+        <li>ทดสอบด้วย Modbus Poll (PC + USB-RS485): ตั้ง COM port, Baud 9600, 8N1, ใส่ Slave address</li>
+        <li>อ่าน Register 4000 → ต้องได้ค่าแรงดัน (เช่น 2203 = 220.3V หลังหาร 10)</li>
+        <li>Debug: ถ้าไม่ได้ค่า — ตรวจ A/B สลับ, ตรวจ Termination, ตรวจ Address, ตรวจ Baud rate</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 02: PLC ══ -->
+<div class="page" id="page-plc">
+  <div class="page-badge">Step 02 · สัปดาห์ที่ 3–4</div>
+  <h1 class="page-title">PLC Programming</h1>
+  <p class="page-sub">Messung NX-ERA · CODESYS 3.5 · IEC 61131-3 Structured Text · Modbus Master · Alarm Logic</p>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-plc">2.1</span>
+      <span class="module-title">CODESYS พื้นฐาน — Project Setup</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body open">
+      <ul class="module-list">
+        <li>Download CODESYS 3.5 SP19+ จาก codesys.com (ฟรี)</li>
+        <li>ติดตั้ง Messung Device Package ผ่าน Tools → Package Manager</li>
+        <li>New Project → Standard Project → เลือก Device: Messung NX-ERA</li>
+        <li>ตั้ง Task: Cyclic, Priority 1, Cycle time 100ms</li>
+        <li>ประเภท Language ที่ควรรู้: ST (Structured Text) เหมือน Pascal · LD (Ladder) สำหรับ Electrician · FBD (Function Block)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-plc">2.2</span>
+      <span class="module-title">Modbus Master Function Block — Sample Code</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <div class="code-wrap">
+        <div class="code-top"><span class="code-lang">STRUCTURED TEXT · IEC 61131-3</span><button class="code-copy" onclick="copyEl(this)">Copy</button></div>
+        <pre id="code-plc"><span class="cm">(* Poll timer — อ่านทุก 1 วินาที *)</span>
+tonPoll(IN := NOT tonPoll.Q, PT := T#1S);
+
+<span class="kw">IF</span> tonPoll.Q <span class="kw">AND NOT</span> fbModbus.Busy <span class="kw">THEN</span>
+    fbModbus.Execute  := <span class="kw">TRUE</span>;
+<span class="kw">END_IF</span>
+
+fbModbus(
+    Execute    := bExecute,
+    SlaveAddr  := <span class="nm">1</span>,        <span class="cm">(* Selec Modbus address *)</span>
+    FuncCode   := <span class="nm">3</span>,        <span class="cm">(* FC03 Read Holding Registers *)</span>
+    StartAddr  := <span class="nm">3999</span>,     <span class="cm">(* Register 4000 (0-based) *)</span>
+    Quantity   := <span class="nm">14</span>,
+    DataBuffer := arrRaw,
+    Done       => bDone,
+    Error      => bError
+);
+
+<span class="kw">IF</span> bDone <span class="kw">THEN</span>
+    rVoltage_L1  := <span class="fn">WORD_TO_REAL</span>(arrRaw[<span class="nm">0</span>]) / <span class="nm">10.0</span>;
+    rCurrent_L1  := <span class="fn">WORD_TO_REAL</span>(arrRaw[<span class="nm">3</span>]) / <span class="nm">10.0</span>;
+    rActivePower := <span class="fn">WORD_TO_REAL</span>(arrRaw[<span class="nm">6</span>]) / <span class="nm">10.0</span>;
+    rPowerFactor := <span class="fn">INT_TO_REAL</span>(<span class="fn">WORD_TO_INT</span>(arrRaw[<span class="nm">7</span>])) / <span class="nm">1000.0</span>;
+    fbModbus.Execute := <span class="kw">FALSE</span>;
+<span class="kw">END_IF</span>
+
+<span class="cm">(* Peak Demand Alarm with Hysteresis *)</span>
+<span class="kw">IF NOT</span> bAlarm <span class="kw">AND</span> rActivePower > <span class="nm">15.0</span> <span class="kw">THEN</span>
+    bAlarm := <span class="kw">TRUE</span>;
+<span class="kw">ELSIF</span> bAlarm <span class="kw">AND</span> rActivePower < <span class="nm">14.0</span> <span class="kw">THEN</span>
+    bAlarm := <span class="kw">FALSE</span>;
+<span class="kw">END_IF</span></pre>
+      </div>
+      <div class="alert alert-info" style="margin-top:0">📌 Register address อ้างอิง Selec EM2M Series Manual Rev.2.x — ยืนยันด้วย Modbus Poll ก่อนใช้จริงเสมอ</div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-plc">2.3</span>
+      <span class="module-title">Alarm Logic, Peak Demand และ Daily kWh</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <ul class="module-list">
+        <li>Hysteresis band ป้องกัน output กระพริบ: ON เมื่อ kW > 15 / OFF เมื่อ kW &lt; 14</li>
+        <li>เชื่อม bAlarm → Digital Output %QX0.0 ผ่าน I/O mapping ใน CODESYS</li>
+        <li>Daily kWh reset: ใช้ GET_SYSTEM_TIME() อ่านเวลา PLC → reset เมื่อ Hour = 0</li>
+        <li>Export ข้อมูลผ่าน Modbus TCP หรือ OPC-UA → Node-RED อ่านส่งต่อ MQTT</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 03: IT/CLOUD ══ -->
+<div class="page" id="page-iot">
+  <div class="page-badge">Step 03 · สัปดาห์ที่ 5–6</div>
+  <h1 class="page-title">IT / Cloud & Dashboard</h1>
+  <p class="page-sub">Node-RED · Mosquitto MQTT · InfluxDB · Grafana — Stack ทั้งหมดรัน Docker บนเครื่องเดียว</p>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-iot">3.1</span>
+      <span class="module-title">MQTT Protocol — Pub/Sub พื้นฐาน</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body open">
+      <ul class="module-list">
+        <li>MQTT = Message Queuing Telemetry Transport · โปรโตคอลเบาสำหรับ IoT</li>
+        <li>Publish: อุปกรณ์ส่งข้อมูลไปที่ Broker พร้อม Topic</li>
+        <li>Subscribe: Dashboard รับข้อมูลโดย subscribe topic ที่ต้องการ</li>
+        <li>Topic แนะนำ: <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px;font-size:.8rem">factory/building-a/meter01/kW</code></li>
+        <li>QoS 1 (At least once) เหมาะสำหรับ energy data — ไม่ส่งซ้ำซ้อนเกินไป แต่ไม่สูญหาย</li>
+        <li>ทดสอบด้วย MQTT Explorer (free) ก่อนเชื่อม Grafana</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-iot">3.2</span>
+      <span class="module-title">Node-RED Flow + Docker Stack</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <ul class="module-list">
+        <li>Node-RED อ่านค่าจาก PLC ผ่าน Modbus TCP node → แปลง JSON → Publish MQTT</li>
+        <li>Docker Compose รัน Mosquitto + InfluxDB + Grafana ในไฟล์เดียว (ดู C2)</li>
+        <li>Telegraf รับ MQTT แล้วเขียนลง InfluxDB อัตโนมัติ ไม่ต้องเขียน code</li>
+        <li>Retention Policy: เก็บ raw 1s นาน 7 วัน · downsampled 15min นาน 1 ปี</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-iot">3.3</span>
+      <span class="module-title">Grafana Dashboard และ Embed ใน Google Sites</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <ul class="module-list">
+        <li>เชื่อม InfluxDB เป็น Data source: Configuration → Data Sources → InfluxDB</li>
+        <li>สร้าง Panel: Load Profile (Time series), Peak Demand (Stat), PF (Gauge), CO₂ (Stat)</li>
+        <li>ตั้ง Alert Rule: kW > 15 → ส่ง Notification (Email / Line Notify)</li>
+        <li>Embed ใน Google Sites: Share Panel → Embed → Copy URL → Sites → Insert → Embed</li>
+        <li>ใช้ Grafana Cloud Free Tier (3 users, 10k metrics) ถ้าไม่ต้องการ host เอง</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 04: AI ══ -->
+<div class="page" id="page-ai">
+  <div class="page-badge">Future Layer · AI Analytics</div>
+  <h1 class="page-title">AI & Energy Analytics</h1>
+  <p class="page-sub">นำ Dataset ที่เก็บตั้งแต่วันแรกมาฝึก Model — Anomaly Detection และ Demand Forecasting</p>
+  <div class="alert alert-tip">⏳ <strong>ต้องรอ:</strong> ควรเก็บข้อมูลอย่างน้อย 2–4 สัปดาห์ก่อนเริ่ม section นี้ เพื่อให้มี Dataset ที่มีความหลากหลาย</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon ci-ai">🔍</div>
+      <div class="card-title">Anomaly Detection</div>
+      <div class="card-desc">ใช้ Isolation Forest หรือ Z-score หา "ไฟฟ้าที่รั่วไหล" (Base load ผิดปกติ) · Python + scikit-learn</div>
+    </div>
+    <div class="card">
+      <div class="card-icon ci-ai">📈</div>
+      <div class="card-title">Demand Forecasting</div>
+      <div class="card-desc">LSTM Neural Network พยากรณ์ Load Profile ล่วงหน้า 24 ชั่วโมง · TensorFlow / Keras</div>
+    </div>
+  </div>
+  <div class="module-block">
+    <div class="module-hdr" onclick="tog(this)">
+      <span class="module-num mn-ai">D1</span>
+      <span class="module-title">Python Anomaly Detection — โค้ดตัวอย่าง</span>
+      <span class="module-arrow">▾</span>
+    </div>
+    <div class="module-body">
+      <div class="code-wrap">
+        <div class="code-top"><span class="code-lang">PYTHON 3.10+</span><button class="code-copy" onclick="copyEl(this)">Copy</button></div>
+        <pre id="code-py"><span class="kw">from</span> influxdb_client <span class="kw">import</span> InfluxDBClient
+<span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> IsolationForest
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># เชื่อม InfluxDB</span>
+client = <span class="fn">InfluxDBClient</span>(url=<span class="st">"http://localhost:8086"</span>,
+                          token=<span class="st">"YOUR_TOKEN"</span>, org=<span class="st">"wattiq"</span>)
+query_api = client.query_api()
+
+<span class="cm"># ดึงข้อมูล kW ย้อนหลัง 7 วัน</span>
+query = <span class="st">"""
+from(bucket: "energy")
+  |> range(start: -7d)
+  |> filter(fn: (r) => r._measurement == "meter" and r._field == "kW")
+  |> aggregateWindow(every: 15m, fn: mean)
+"""</span>
+df = query_api.query_data_frame(query)
+df = df[[<span class="st">'_time'</span>, <span class="st">'_value'</span>]].rename(columns={<span class="st">'_value'</span>: <span class="st">'kW'</span>})
+
+<span class="cm"># Train Isolation Forest</span>
+model = <span class="fn">IsolationForest</span>(contamination=<span class="nm">0.05</span>, random_state=<span class="nm">42</span>)
+df[<span class="st">'anomaly'</span>] = model.fit_predict(df[[<span class="st">'kW'</span>]])
+anomalies = df[df[<span class="st">'anomaly'</span>] == -<span class="nm">1</span>]
+<span class="fn">print</span>(f<span class="st">"พบ {len(anomalies)} จุดผิดปกติ"</span>)
+<span class="fn">print</span>(anomalies[[<span class="st">'_time'</span>, <span class="st">'kW'</span>]])</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 05: RESOURCES ══ -->
+<div class="page" id="page-res">
+  <div class="page-badge">Resource Library</div>
+  <h1 class="page-title">ไฟล์และเอกสารดาวน์โหลด</h1>
+  <p class="page-sub">Code, Diagram, Config และ Reference ทั้งหมด — พร้อมใช้ในห้องเรียนและ Lab</p>
+  <table class="res-table">
+    <thead><tr><th>ไฟล์</th><th>คำอธิบาย</th><th>ประเภท</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><strong>B1_hero_banner.html</strong></td><td>Hero Banner สำหรับ Google Sites</td><td><span class="pill p-iot">HTML</span></td><td><a class="dl-btn" href="B1_hero_banner.html">Download</a></td></tr>
+      <tr><td><strong>B2_logo_assets.svg</strong></td><td>Logo ทั้ง 4 variant + Color swatches</td><td><span class="pill p-hw">SVG</span></td><td><a class="dl-btn" href="B2_logo_assets.svg">Download</a></td></tr>
+      <tr><td><strong>C1_nodered_flow.json</strong></td><td>Node-RED flow สำหรับ MQTT bridge</td><td><span class="pill p-iot">JSON</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
+      <tr><td><strong>C2_docker_compose.yml</strong></td><td>Full stack: Mosquitto + InfluxDB + Grafana</td><td><span class="pill p-plc">YAML</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
+      <tr><td><strong>CODESYS_EnergyMonitor.project</strong></td><td>CODESYS project file พร้อม FB ทั้งหมด</td><td><span class="pill p-plc">PLC</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
+      <tr><td><strong>Selec_EM2M_Register_Map.pdf</strong></td><td>Register map ครบถ้วน พร้อม Scale factor</td><td><span class="pill p-hw">PDF</span></td><td><a class="dl-btn" href="#">Ref</a></td></tr>
+      <tr><td><strong>Wiring_Diagram_3Phase.pdf</strong></td><td>แผนผังการเดินสาย CT + RS485 + PLC</td><td><span class="pill p-hw">PDF</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:1.25rem">
+    <div class="page-badge" style="margin-bottom:.5rem">Bill of Materials — ต้นทุน Prototype</div>
+    <table class="res-table">
+      <thead><tr><th>รายการ</th><th>รุ่น</th><th>ราคาประมาณ</th><th>หมายเหตุ</th></tr></thead>
+      <tbody>
+        <tr><td>Energy Meter</td><td>Selec EM2M-96</td><td>~3,500 ฿</td><td>มี Modbus RTU built-in</td></tr>
+        <tr><td>CT Sensor</td><td>100A/5A split-core</td><td>~800 ฿</td><td>ติดตั้งง่าย ไม่ต้องตัดไฟ</td></tr>
+        <tr><td>PLC</td><td>Messung NX-ERA</td><td>~15,000 ฿</td><td>มี RS485 + Ethernet</td></tr>
+        <tr><td>Edge Computer</td><td>Raspberry Pi 4 (4GB)</td><td>~2,500 ฿</td><td>Node-RED + Docker</td></tr>
+        <tr><td>RS485 Converter</td><td>USB-RS485 dongle</td><td>~350 ฿</td><td>สำหรับ test จาก PC</td></tr>
+        <tr><td><strong>Software</strong></td><td>CODESYS + Node-RED + Mosquitto + InfluxDB + Grafana</td><td><strong class="pill p-free">฿ 0</strong></td><td>Open Source ทั้งหมด</td></tr>
+        <tr style="font-weight:600"><td>รวม</td><td></td><td>~22,000–25,000 ฿</td><td>ต่อ 1 Prototype station</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══ PAGE 06: ABOUT ══ -->
+<div class="page" id="page-about">
+  <div class="page-badge">About WATT·IQ</div>
+  <h1 class="page-title">เกี่ยวกับเรา</h1>
+  <div class="quote-block">
+    <div class="quote-text">"We believe the best way to learn energy systems<br>is to build one."</div>
+    <div class="quote-attr">— WATT·IQ Platform Philosophy</div>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🎯 พันธกิจ</h3>
+      <p>WATT·IQ คือแพลตฟอร์มการเรียนรู้แบบเปิด ที่มุ่งเน้น Smart Energy Management โดยเชื่อมโยง Hardware อุตสาหกรรมกับ IoT Intelligence อย่างเป็นรูปธรรม ผ่าน Prototype จริงที่ใช้งานได้จริง</p>
+    </div>
+    <div class="about-card">
+      <h3>👥 กลุ่มเป้าหมาย</h3>
+      <p>นักศึกษา ปวส.–ปริญญาตรี · อาจารย์ผู้สอน · วิศวกรในอุตสาหกรรม · ผู้ประกอบการ SME ที่ต้องการลดต้นทุนพลังงาน</p>
+    </div>
+    <div class="about-card">
+      <h3>🔧 Technology Stack</h3>
+      <p>Selec Energy Meter · Messung PLC · CODESYS IEC 61131-3 · Node-RED · Mosquitto MQTT · InfluxDB · Grafana · Python ML</p>
+    </div>
+    <div class="about-card">
+      <h3>📬 ติดต่อ</h3>
+      <p>สนใจเป็น Partner · ขอข้อมูลหลักสูตร · หรือต้องการนำ Prototype ไปใช้ในสถาบัน — ติดต่อผ่าน Google Sites Contact form</p>
+    </div>
+  </div>
+</div>
 
 <script>
 function show(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  // ค้นหา link ที่คลิกเพื่อใส่ class active
-  const links = document.querySelectorAll('.nav-link');
-  links.forEach(link => {
-    if(link.textContent.toLowerCase().includes(id)) link.classList.add('active');
-    if(id==='home' && link.textContent==='Home') link.classList.add('active');
-  });
+  event.target.classList.add('active');
   window.scrollTo(0,0);
 }
 function tog(hdr){
   const body=hdr.nextElementSibling;
   const arrow=hdr.querySelector('.module-arrow');
   const open=body.classList.toggle('open');
-  if(arrow) arrow.style.transform=open?'rotate(180deg)':'';
+  arrow.style.transform=open?'rotate(180deg)':'';
 }
 function copyEl(btn){
   const pre=btn.closest('.code-wrap').querySelector('pre');
