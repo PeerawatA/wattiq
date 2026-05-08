@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" width="680" height="260">
+  <title>WATT·IQ Logo — All Variants</title>
+  <desc>WATT·IQ Smart Energy Management Platform — Logo Asset Sheet</desc>
+
+  <!-- Background -->
+  <rect width="680" height="260" fill="#F8FAFC" rx="12"/>
+
+  <!-- ── VARIANT 1: Primary (Light BG) ── -->
+  <text x="30" y="26" font-family="Inter,sans-serif" font-size="9" font-weight="600"
+        fill="#94A3B8" letter-spacing="1">VARIANT 1 · PRIMARY</text>
+
+  <!-- Bolt icon box -->
+  <rect x="30" y="36" width="48" height="48" rx="11" fill="#1B6CA8"/>
+  <polygon points="50,40 40,60 48,60 44,80 58,58 49,58" fill="white"/>
+
+  <!-- WATT wordmark -->
+  <text x="90" y="72" font-family="Georgia,'Times New Roman',serif" font-size="38"
+        font-weight="700" fill="#0F2A45" letter-spacing="2">WATT</text>
+  <!-- dot -->
+  <circle cx="212" cy="60" r="4.5" fill="#F59E0B"/>
+  <!-- IQ -->
+  <text x="221" y="72" font-family="Georgia,'Times New Roman',serif" font-size="38"
+        font-weight="700" fill="#1B6CA8" letter-spacing="2">IQ</text>
+  <!-- tagline -->
+  <text x="90" y="92" font-family="Inter,Arial,sans-serif" font-size="10"
+        font-weight="500" fill="#64748B" letter-spacing="2.5">SMART ENERGY MANAGEMENT</text>
+
+  <!-- ── VARIANT 2: Dark BG ── -->
+  <rect x="340" y="28" width="300" height="80" rx="10" fill="#0F2A45"/>
+  <text x="356" y="46" font-family="Inter,sans-serif" font-size="9" font-weight="600"
+        fill="rgba(255,255,255,0.35)" letter-spacing="1">VARIANT 2 · DARK</text>
+  <!-- Bolt -->
+  <rect x="360" y="54" width="40" height="40" rx="9" fill="#1B6CA8"/>
+  <polygon points="376,57 368,73 374,73 371,91 382,73 376,73" fill="white"/>
+  <!-- Text -->
+  <text x="410" y="83" font-family="Georgia,'Times New Roman',serif" font-size="32"
+        font-weight="700" fill="white" letter-spacing="2">WATT</text>
+  <circle cx="520" cy="73" r="4" fill="#F59E0B"/>
+  <text x="528" y="83" font-family="Georgia,'Times New Roman',serif" font-size="32"
+        font-weight="700" fill="#4DAAEE" letter-spacing="2">IQ</text>
+
+  <!-- ── VARIANT 3: App Icon / Favicon ── -->
+  <text x="30" y="140" font-family="Inter,sans-serif" font-size="9" font-weight="600"
+        fill="#94A3B8" letter-spacing="1">VARIANT 3 · APP ICON</text>
+
+  <!-- 64x64 icon -->
+  <rect x="30" y="150" width="64" height="64" rx="16" fill="#0F2A45"/>
+  <polygon points="55,156 43,176 52,176 48,210 64,182 54,182" fill="#4DAAEE"/>
+  <circle cx="66" cy="162" r="5" fill="white" opacity=".9"/>
+
+  <!-- 32x32 icon -->
+  <rect x="110" y="166" width="32" height="32" rx="8" fill="#0F2A45"/>
+  <polygon points="121,169 115,180 120,180 118,196 126,182 121,182" fill="#4DAAEE"/>
+
+  <!-- 16x16 icon -->
+  <rect x="158" y="174" width="16" height="16" rx="4" fill="#0F2A45"/>
+  <polygon points="164,175 160,182 163,182 162,189 167,182 164,182" fill="#4DAAEE"/>
+
+  <text x="30" y="228" font-family="Inter,sans-serif" font-size="8"
+        fill="#94A3B8">64×64</text>
+  <text x="108" y="228" font-family="Inter,sans-serif" font-size="8"
+        fill="#94A3B8">32×32</text>
+  <text x="153" y="228" font-family="Inter,sans-serif" font-size="8"
+        fill="#94A3B8">16×16</text>
+
+  <!-- ── VARIANT 4: Wordmark Only ── -->
+  <text x="220" y="140" font-family="Inter,sans-serif" font-size="9" font-weight="600"
+        fill="#94A3B8" letter-spacing="1">VARIANT 4 · WORDMARK</text>
+
+  <text x="220" y="185" font-family="Georgia,'Times New Roman',serif" font-size="36"
+        font-weight="700" fill="#0F2A45" letter-spacing="3">WATT</text>
+  <circle cx="347" cy="174" r="4" fill="#1B6CA8"/>
+  <text x="356" y="185" font-family="Georgia,'Times New Roman',serif" font-size="36"
+        font-weight="700" fill="#1B6CA8" letter-spacing="3">IQ</text>
+
+  <!-- ── COLOR SWATCHES ── -->
+  <text x="450" y="140" font-family="Inter,sans-serif" font-size="9" font-weight="600"
+        fill="#94A3B8" letter-spacing="1">BRAND COLORS</text>
+
+  <rect x="450" y="150" width="36" height="36" rx="6" fill="#0F2A45"/>
+  <text x="450" y="200" font-family="Inter,sans-serif" font-size="8" fill="#64748B">#0F2A45</text>
+  <text x="450" y="210" font-family="Inter,sans-serif" font-size="7" fill="#94A3B8">Navy</text>
+
+  <rect x="498" y="150" width="36" height="36" rx="6" fill="#1B6CA8"/>
+  <text x="498" y="200" font-family="Inter,sans-serif" font-size="8" fill="#64748B">#1B6CA8</text>
+  <text x="498" y="210" font-family="Inter,sans-serif" font-size="7" fill="#94A3B8">Blue</text>
+
+  <rect x="546" y="150" width="36" height="36" rx="6" fill="#F59E0B"/>
+  <text x="546" y="200" font-family="Inter,sans-serif" font-size="8" fill="#64748B">#F59E0B</text>
+  <text x="546" y="210" font-family="Inter,sans-serif" font-size="7" fill="#94A3B8">Amber</text>
+
+  <rect x="594" y="150" width="36" height="36" rx="6" fill="#1D9E75"/>
+  <text x="594" y="200" font-family="Inter,sans-serif" font-size="8" fill="#64748B">#1D9E75</text>
+  <text x="594" y="210" font-family="Inter,sans-serif" font-size="7" fill="#94A3B8">Green</text>
+
+  <!-- Dividers -->
+  <line x1="330" y1="28" x2="330" y2="115" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="30" y1="128" x2="650" y2="128" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="210" y1="128" x2="210" y2="245" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="440" y1="128" x2="440" y2="245" stroke="#E2E8F0" stroke-width="1"/>
+
+</svg>
