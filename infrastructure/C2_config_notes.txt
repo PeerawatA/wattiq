@@ -1,0 +1,38 @@
+# ============================================================
+#  MOSQUITTO CONFIG — config/mosquitto/mosquitto.conf
+# ============================================================
+listener 1883
+listener 9001
+protocol websockets
+allow_anonymous true
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+log_type all
+connection_messages true
+log_timestamp true
+
+# ============================================================
+#  TELEGRAF CONFIG — config/telegraf/telegraf.conf
+#  สำหรับบันทึกไว้ที่ config/telegraf/telegraf.conf
+# ============================================================
+#
+# [agent]
+#   interval = "5s"
+#   flush_interval = "10s"
+#   hostname = "wattiq-edge"
+#
+# [[inputs.mqtt_consumer]]
+#   servers = ["tcp://mosquitto:1883"]
+#   topics  = ["factory/+/+/data"]
+#   qos     = 1
+#   data_format = "json"
+#   json_time_key    = "ts"
+#   json_time_format = "unix"
+#   tag_keys = ["meter_id", "location"]
+#
+# [[outputs.influxdb_v2]]
+#   urls         = ["${INFLUX_URL}"]
+#   token        = "${INFLUX_TOKEN}"
+#   organization = "${INFLUX_ORG}"
+#   bucket       = "energy"

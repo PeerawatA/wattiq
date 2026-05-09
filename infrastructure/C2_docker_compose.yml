@@ -1,0 +1,171 @@
+# ============================================================
+#  WATT·IQ — Full Stack Docker Compose
+#  Services: Mosquitto · InfluxDB 2 · Telegraf · Grafana
+#
+#  Usage:
+#    1. Copy this file to your server/Raspberry Pi
+#    2. Run: docker compose up -d
+#    3. Access Grafana at http://localhost:3000
+#       (admin / wattiq2024)
+#
+#  Prerequisites:
+#    - Docker Engine 24+
+#    - Docker Compose v2
+#    - Ports 1883, 3000, 8086 must be free
+# ============================================================
+
+services:
+
+  # ──────────────────────────────────────────
+  # MOSQUITTO — MQTT Broker
+  # Port 1883 (MQTT) | 9001 (WebSocket)
+  # ──────────────────────────────────────────
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: wattiq-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"        # MQTT
+      - "9001:9001"        # WebSocket (for MQTT Explorer browser)
+    volumes:
+      - ./config/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    networks:
+      - wattiq-net
+    healthcheck:
+      test: ["CMD-SHELL", "mosquitto_pub -h localhost -t '$$SYS/health' -m 'ok' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ──────────────────────────────────────────
+  # INFLUXDB 2 — Time-Series Database
+  # Port 8086 (HTTP API + UI)
+  # ──────────────────────────────────────────
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: wattiq-influxdb
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE:        setup
+      DOCKER_INFLUXDB_INIT_USERNAME:    admin
+      DOCKER_INFLUXDB_INIT_PASSWORD:    wattiq2024
+      DOCKER_INFLUXDB_INIT_ORG:         wattiq
+      DOCKER_INFLUXDB_INIT_BUCKET:      energy
+      DOCKER_INFLUXDB_INIT_RETENTION:   168h     # 7 days raw data
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: wattiq-super-secret-token-change-in-production
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
+    networks:
+      - wattiq-net
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ──────────────────────────────────────────
+  # TELEGRAF — MQTT Consumer → InfluxDB Writer
+  # No exposed port (internal bridge only)
+  # ──────────────────────────────────────────
+  telegraf:
+    image: telegraf:1.30-alpine
+    container_name: wattiq-telegraf
+    restart: unless-stopped
+    depends_on:
+      influxdb:
+        condition: service_healthy
+      mosquitto:
+        condition: service_healthy
+    volumes:
+      - ./config/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - wattiq-net
+    environment:
+      INFLUX_TOKEN: wattiq-super-secret-token-change-in-production
+      INFLUX_ORG:   wattiq
+      INFLUX_URL:   http://influxdb:8086
+
+  # ──────────────────────────────────────────
+  # GRAFANA — Dashboard & Alerting
+  # Port 3000 (Web UI)
+  # ──────────────────────────────────────────
+  grafana:
+    image: grafana/grafana-oss:10.4.0
+    container_name: wattiq-grafana
+    restart: unless-stopped
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER:      admin
+      GF_SECURITY_ADMIN_PASSWORD:  wattiq2024
+      GF_SECURITY_ALLOW_EMBEDDING: "true"      # required for Google Sites embed
+      GF_AUTH_ANONYMOUS_ENABLED:   "true"      # allow public view of dashboards
+      GF_AUTH_ANONYMOUS_ORG_ROLE:  Viewer
+      GF_SERVER_ROOT_URL:          "%(protocol)s://%(domain)s:%(http_port)s"
+      GF_INSTALL_PLUGINS:          grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./config/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./config/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks:
+      - wattiq-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ──────────────────────────────────────────
+  # NODE-RED — Edge Flow Programming
+  # Port 1880 (Web UI + API)
+  # ──────────────────────────────────────────
+  nodered:
+    image: nodered/node-red:3.1-18
+    container_name: wattiq-nodered
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+    ports:
+      - "1880:1880"
+    environment:
+      TZ: Asia/Bangkok
+      NODE_RED_ENABLE_SAFE_MODE: "false"
+    volumes:
+      - nodered-data:/data
+    networks:
+      - wattiq-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:1880 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# ──────────────────────────────────────────
+# VOLUMES
+# ──────────────────────────────────────────
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+  influxdb-data:
+  influxdb-config:
+  grafana-data:
+  nodered-data:
+
+# ──────────────────────────────────────────
+# NETWORKS
+# ──────────────────────────────────────────
+networks:
+  wattiq-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
