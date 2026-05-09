@@ -415,18 +415,126 @@ anomalies = df[df[<span class="st">'anomaly'</span>] == -<span class="nm">1</spa
   <div class="page-badge">Resource Library</div>
   <h1 class="page-title">ไฟล์และเอกสารดาวน์โหลด</h1>
   <p class="page-sub">Code, Diagram, Config และ Reference ทั้งหมด — พร้อมใช้ในห้องเรียนและ Lab</p>
+  <!-- BASE URL สำหรับ GitHub Raw — เปลี่ยนแค่บรรทัดนี้ถ้า fork หรือเปลี่ยนชื่อ repo -->
+  <script>const RAW = 'https://raw.githubusercontent.com/PeerawatA/wattiq/main';</script>
+
   <table class="res-table">
-    <thead><tr><th>ไฟล์</th><th>คำอธิบาย</th><th>ประเภท</th><th></th></tr></thead>
+    <thead><tr><th>ไฟล์</th><th>คำอธิบาย</th><th>ประเภท</th><th>Action</th></tr></thead>
     <tbody>
-      <tr><td><strong>B1_hero_banner.html</strong></td><td>Hero Banner สำหรับ Google Sites</td><td><span class="pill p-iot">HTML</span></td><td><a class="dl-btn" href="B1_hero_banner.html">Download</a></td></tr>
-      <tr><td><strong>B2_logo_assets.svg</strong></td><td>Logo ทั้ง 4 variant + Color swatches</td><td><span class="pill p-hw">SVG</span></td><td><a class="dl-btn" href="B2_logo_assets.svg">Download</a></td></tr>
-      <tr><td><strong>C1_nodered_flow.json</strong></td><td>Node-RED flow สำหรับ MQTT bridge</td><td><span class="pill p-iot">JSON</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
-      <tr><td><strong>C2_docker_compose.yml</strong></td><td>Full stack: Mosquitto + InfluxDB + Grafana</td><td><span class="pill p-plc">YAML</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
-      <tr><td><strong>CODESYS_EnergyMonitor.project</strong></td><td>CODESYS project file พร้อม FB ทั้งหมด</td><td><span class="pill p-plc">PLC</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
-      <tr><td><strong>Selec_EM2M_Register_Map.pdf</strong></td><td>Register map ครบถ้วน พร้อม Scale factor</td><td><span class="pill p-hw">PDF</span></td><td><a class="dl-btn" href="#">Ref</a></td></tr>
-      <tr><td><strong>Wiring_Diagram_3Phase.pdf</strong></td><td>แผนผังการเดินสาย CT + RS485 + PLC</td><td><span class="pill p-hw">PDF</span></td><td><a class="dl-btn" href="#">Pending</a></td></tr>
+
+      <!-- ── ไฟล์ Site (root) ── -->
+      <tr>
+        <td><strong>B1_hero_banner.html</strong></td>
+        <td>Hero Banner พร้อม embed ใน Google Sites</td>
+        <td><span class="pill p-iot">HTML</span></td>
+        <td>
+          <a class="dl-btn" href="B1_hero_banner.html" target="_blank">เปิด</a>
+          &nbsp;
+          <a class="dl-btn" id="dl-b1" href="#" download="B1_hero_banner.html">⬇ Download</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>B2_logo_assets.svg</strong></td>
+        <td>Logo ทั้ง 4 variant + Color System</td>
+        <td><span class="pill p-hw">SVG</span></td>
+        <td>
+          <a class="dl-btn" href="B2_logo_assets.svg" target="_blank">เปิด</a>
+          &nbsp;
+          <a class="dl-btn" id="dl-b2" href="#" download="B2_logo_assets.svg">⬇ Download</a>
+        </td>
+      </tr>
+
+      <!-- ── ไฟล์ Infrastructure ── -->
+      <tr style="background:var(--gray50)">
+        <td colspan="4" style="font-size:.75rem;font-weight:600;color:var(--gray500);letter-spacing:.05em;padding:.5rem 1rem">
+          📁 infrastructure/ — ไฟล์สำหรับติดตั้งบน Server / Raspberry Pi
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>C1_nodered_flow.json</strong></td>
+        <td>Node-RED flow: Modbus → Scale → MQTT bridge</td>
+        <td><span class="pill p-iot">JSON</span></td>
+        <td>
+          <a class="dl-btn" id="dl-c1" href="#" download="C1_nodered_flow.json">⬇ Download</a>
+          &nbsp;
+          <a class="dl-btn" id="view-c1" href="#" target="_blank">GitHub</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>C2_docker_compose.yml</strong></td>
+        <td>Full stack: Mosquitto + InfluxDB + Telegraf + Grafana + Node-RED</td>
+        <td><span class="pill p-plc">YAML</span></td>
+        <td>
+          <a class="dl-btn" id="dl-c2" href="#" download="C2_docker_compose.yml">⬇ Download</a>
+          &nbsp;
+          <a class="dl-btn" id="view-c2" href="#" target="_blank">GitHub</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>C2_config_notes.txt</strong></td>
+        <td>Config สำหรับ Mosquitto + Telegraf (อ่าน + copy)</td>
+        <td><span class="pill p-plc">TXT</span></td>
+        <td>
+          <a class="dl-btn" id="dl-c2cfg" href="#" download="C2_config_notes.txt">⬇ Download</a>
+          &nbsp;
+          <a class="dl-btn" id="view-c2cfg" href="#" target="_blank">GitHub</a>
+        </td>
+      </tr>
+
+      <!-- ── ไฟล์ Coming Soon ── -->
+      <tr style="background:var(--gray50)">
+        <td colspan="4" style="font-size:.75rem;font-weight:600;color:var(--gray500);letter-spacing:.05em;padding:.5rem 1rem">
+          🔜 Coming Soon — จะเพิ่มเมื่อสร้างเสร็จ
+        </td>
+      </tr>
+
+      <tr style="opacity:.55">
+        <td><strong>CODESYS_EnergyMonitor.project</strong></td>
+        <td>CODESYS project file พร้อม Modbus FB + Alarm Logic</td>
+        <td><span class="pill p-plc">PLC</span></td>
+        <td><span class="dl-btn" style="cursor:default">⏳ Soon</span></td>
+      </tr>
+
+      <tr style="opacity:.55">
+        <td><strong>Selec_EM2M_Register_Map.pdf</strong></td>
+        <td>Register map ครบถ้วน พร้อม Scale factor ทุก parameter</td>
+        <td><span class="pill p-hw">PDF</span></td>
+        <td><span class="dl-btn" style="cursor:default">⏳ Soon</span></td>
+      </tr>
+
+      <tr style="opacity:.55">
+        <td><strong>Wiring_Diagram_3Phase.pdf</strong></td>
+        <td>แผนผังการเดินสาย CT + RS485 + PLC ครบถ้วน</td>
+        <td><span class="pill p-hw">PDF</span></td>
+        <td><span class="dl-btn" style="cursor:default">⏳ Soon</span></td>
+      </tr>
+
     </tbody>
   </table>
+
+  <!-- ── ตั้งค่า href จาก RAW variable ── -->
+  <script>
+  (function(){
+    const R = 'https://raw.githubusercontent.com/PeerawatA/wattiq/main';
+    const G = 'https://github.com/PeerawatA/wattiq/blob/main';
+
+    // Download via raw (forces download with correct content)
+    document.getElementById('dl-b1').href    = R + '/B1_hero_banner.html';
+    document.getElementById('dl-b2').href    = R + '/B2_logo_assets.svg';
+    document.getElementById('dl-c1').href    = R + '/infrastructure/C1_nodered_flow.json';
+    document.getElementById('dl-c2').href    = R + '/infrastructure/C2_docker_compose.yml';
+    document.getElementById('dl-c2cfg').href = R + '/infrastructure/C2_config_notes.txt';
+
+    // View on GitHub (shows syntax highlight)
+    document.getElementById('view-c1').href    = G + '/infrastructure/C1_nodered_flow.json';
+    document.getElementById('view-c2').href    = G + '/infrastructure/C2_docker_compose.yml';
+    document.getElementById('view-c2cfg').href = G + '/infrastructure/C2_config_notes.txt';
+  })();
+  </script>
   <div style="margin-top:1.25rem">
     <div class="page-badge" style="margin-bottom:.5rem">Bill of Materials — ต้นทุน Prototype</div>
     <table class="res-table">
